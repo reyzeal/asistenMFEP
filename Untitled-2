@@ -1,0 +1,40 @@
+ public function insertPenilaian()
+	{	
+            $data1 = array(
+                            'id_reviewer'   => $this->input->post('id_reviewer'),
+                            'id_pendaftaran'    => $this->input->post('id_pendaftaran') 
+                            );
+            
+            $this->mreviewer->insertreviewpendaftar($data1);
+        
+            $lastid = $this->db->insert_id();
+           // echo $lastid;
+        
+            $aspek         = $this->input->post('id_aspek');
+            $nilai          = $this->input->post('nilai');
+            $pendaftar         = $this->input->post('id_pendaftaran'); 
+            $id_reviewer    = $this->input->post('id_reviewer');
+      
+            $data = array();
+            foreach($nilai as $id_kriteria => $id_nilai)
+            { 
+              array_push($data, array(
+                                        
+                                        'id_reviewpendaftar'       =>$lastid,
+                                        'id_kriteria'       =>$id_kriteria,
+                                        'nilai'              =>$id_nilai
+
+                                      ));
+            }
+        
+          
+              
+//            print "<pre>";
+//            print_r($data);
+//       echo  '1'.$aspek;
+//        die();
+        $this->mreviewer->insertnilaireviewer($data);
+        
+        
+         redirect('reviewer/peserta/'.$aspek);
+	}

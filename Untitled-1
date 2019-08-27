@@ -1,0 +1,3 @@
+SELECT * FROM review_pendaftar JOIN nilai_reviewer ON review_pendaftar.id_reviewpendaftar=nilai_reviewer.id_reviewpendaftar WHERE id_pendaftaran=7
+
+SELECT * FROM review_pendaftar JOIN nilai_reviewer ON review_pendaftar.id_reviewpendaftar=nilai_reviewer.id_reviewpendaftar JOIN kriteria on nilai_reviewer.id_kriteria=kriteria.id_kriteria WHERE id_pendaftaran=7
