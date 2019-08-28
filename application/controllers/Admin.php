@@ -139,8 +139,9 @@ class Admin extends CI_Controller {
         foreach ($data['kriteria'] as $k){
             $total_bobot_eval += $k->bobot_evaluasi;
         }
+        $total_bobot_eval = round($total_bobot_eval,2);
         if($total_bobot_eval != 1){
-            $data['selisih'] = round($total_bobot_eval - 1,3);
+            $data['selisih'] = round($total_bobot_eval - 1,2);
             $data['selisih'] = $data['selisih']>0?"+$data[selisih]":$data['selisih'];
             $this->session->set_flashdata('err', "Bobot evaluasi tidak sama dengan 1 (selisih $data[selisih])");
         }else{
