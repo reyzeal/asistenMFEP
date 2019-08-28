@@ -140,7 +140,7 @@ class Admin extends CI_Controller {
             $total_bobot_eval += $k->bobot_evaluasi;
         }
         if($total_bobot_eval != 1){
-            $data['selisih'] = $total_bobot_eval - 1;
+            $data['selisih'] = round($total_bobot_eval - 1,3);
             $data['selisih'] = $data['selisih']>0?"+$data[selisih]":$data['selisih'];
             $this->session->set_flashdata('err', "Bobot evaluasi tidak sama dengan 1 (selisih $data[selisih])");
         }else{
